@@ -9,7 +9,7 @@ function evalCode(language, code, success, error) {
 	  	language: language,
 	  	code: code
 	  }),
-	  //contentType : 'application/json',
+	  contentType : 'application/json',
 	  success: success,
 	  error: error
 	});
