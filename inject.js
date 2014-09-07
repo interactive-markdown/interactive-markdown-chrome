@@ -44,6 +44,17 @@ function TEST_injectCSS(){
 
 
 //==================================================
+function insertElemAfter(elementAboveInjectionPosition, elemToInject){
+  var elemAbove = elementAboveInjectionPosition;
+  if (elemAbove.nextSibling){
+    elemAbove.parentNode.insertBefore(elemToInject, elemAbove.nextSibling);
+  }
+  else {
+    elemAbove.parentNode.appendChild(elemToInject);
+  }
+  return elemToInject;  
+}
+
 function injectIframe(elementAboveInjectionPosition){
   var ifrm = document.createElement("iframe");
   insertElemAfter(elementAboveInjectionPosition, ifrm); //Must add iframe to DOM before it gets its own DOM contentWindow contentDocument
@@ -67,16 +78,6 @@ function injectHTML(elementAboveInjectionPosition, htmlCode_string){
   // docFrag.innerHTML = htmlCode_string;
   // elemAbove.appendChild(docFrag);
   // return docFrag;
-}
-function insertElemAfter(elementAboveInjectionPosition, elemToInject){
-  var elemAbove = elementAboveInjectionPosition;
-  if (elemAbove.nextSibling){
-    elemAbove.parentNode.insertBefore(elemToInject, elemAbove.nextSibling);
-  }
-  else {
-    elemAbove.parentNode.appendChild(elemToInject);
-  }
-  return elemToInject;  
 }
 
 function injectJS(jsCode_string, ddocument){
