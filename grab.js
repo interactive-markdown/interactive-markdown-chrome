@@ -38,6 +38,25 @@ function setup_view(){
     codeBlockList[i].appendChild(checkbox);
     // checkbox.checked = false;
   }
+
+  //create button to launch simulator
+  var isAndroid = $("a[title='AndroidManifest.xml']");
+  if (isAndroid && isAndroid.length > 0) {
+    var button=$('<input/>').attr({
+          type: "button",
+          id: "field",
+          value: "Try Live"
+
+      });
+    
+    //create canvas on click
+    button.on('click', function(e) {
+      var canvas = $('<div><canvas class="android-live" style="width:100px; height:200px"></canvas></div>');
+      $(".file-wrap").append(canvas);
+    });
+
+    $(".file-wrap").append(button);
+  }
 }
 
 function getCode(codeBlockList, checkboxList){
