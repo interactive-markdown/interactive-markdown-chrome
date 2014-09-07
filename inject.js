@@ -1,4 +1,26 @@
+function TEST_injectDisplay(){
+  var codeBlock = document.getElementsByClassName("srg")[0].getElementsByClassName("g")[0];
+  var ifrmRef = injectIframe(codeBlock);
+  console.log(ifrmRef);
 
+  var sample_html = "<div>html code is successfully injected</div>";
+  var elemAbove = ifrmRef.firstDiv;
+  var injectedHTML_elem = injectHTML(elemAbove, sample_html);
+  console.log(injectedHTML_elem);
+
+  var sample_js = "alert('js code successfully injected');";
+  var injectedJS_elem = injectJS(sample_js, ifrmRef.idoc);
+  console.log("injectedJS:", injectedJS_elem);
+  var injectedJS_bySrc = injectJS_src('https://ajax.googleapis.com/ajax/libs/threejs/r67/three.min.js', ifrmRef.idoc);
+  console.log("injectedJS:", injectedJS_bySrc);
+
+  var sample_css = "div{background-color:green;}";
+  var injectedCSS_elem = injectCSS(sample_css, ifrmRef.idoc);
+  console.log(injectedCSS_elem);
+  var injectedCSS_bySrc = injectCSS_src("https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.1/themes/smoothness/jquery-ui.css", ifrmRef.idoc);
+  console.log("injectedCSS:", injectedCSS_bySrc);
+}
+//-------------------------
 function TEST_injectHTML(){
   var sample_html = "<div>html code is successfully injected</div>";
   var elemAbove = document.getElementsByClassName("srg")[0].getElementsByClassName("g")[0];
@@ -22,6 +44,19 @@ function TEST_injectCSS(){
 
 
 //==================================================
+function injectIframe(elementAboveInjectionPosition){
+  var ifrm = document.createElement("iframe");
+  insertElemAfter(elementAboveInjectionPosition, ifrm); //Must add iframe to DOM before it gets its own DOM contentWindow contentDocument
+  var idoc = (ifrm.contentWindow || ifrm.contentDocument);
+  if (idoc.document){idoc = idoc.document};
+  var firstDiv = idoc.createElement("div");
+  firstDiv.id = "firstDiv";
+  idoc.getElementsByTagName("body")[0].appendChild(firstDiv);
+// y.body.style.backgroundColor = "red";
+  return {"idoc":idoc, "firstDiv":firstDiv};
+}
+
+
 function injectHTML(elementAboveInjectionPosition, htmlCode_string){
   var injectContainer = document.createElement("div");
   injectContainer.className = "injectedHTMLContainer";
@@ -44,30 +79,42 @@ function insertElemAfter(elementAboveInjectionPosition, elemToInject){
   return elemToInject;  
 }
 
-function injectJS(jsCode_string){
+function injectJS(jsCode_string, ddocument){
+  if (typeof ddocument == "undefined"){
+    ddocument = document;
+  }
   ////document.write("<scr"+"ipt>" +jsCode_string+ "</scr"+"ipt>");
-  var scriptElem = document.createElement("script");
+  var scriptElem = ddocument.createElement("script");
   scriptElem.innerText = jsCode_string; //This line is not compatible with Mozilla Firefox.
-  document.getElementsByTagName("html")[0].appendChild(scriptElem);
+  ddocument.getElementsByTagName("html")[0].appendChild(scriptElem);
   return scriptElem;
 }
-function injectJS_src(src){
-  var scriptElem = document.createElement("script");
+function injectJS_src(src, ddocument){
+  if (typeof ddocument == "undefined"){
+    ddocument = document;
+  }
+  var scriptElem = ddocument.createElement("script");
   scriptElem.src = src;
-  document.getElementsByTagName("html")[0].appendChild(scriptElem);
+  ddocument.getElementsByTagName("html")[0].appendChild(scriptElem);
   return scriptElem;
 }
 
-function injectCSS(cssCode_string){
-  var styleElem = document.createElement('style');
+function injectCSS(cssCode_string, ddocument){
+  if (typeof ddocument == "undefined"){
+    ddocument = document;
+  }
+  var styleElem = ddocument.createElement('style');
   styleElem.type = 'text/css';
   styleElem.innerHTML = cssCode_string;
-  document.getElementsByTagName('head')[0].appendChild(styleElem);
+  ddocument.getElementsByTagName('head')[0].appendChild(styleElem);
 }
-function injectCSS_src(cssSrc){
-  var linkElem = document.createElement('link');
+function injectCSS_src(cssSrc, ddocument){
+  if (typeof ddocument == "undefined"){
+    ddocument = document;
+  }
+  var linkElem = ddocument.createElement('link');
   linkElem.setAttribute('rel', 'stylesheet');
   linkElem.setAttribute('type', 'text/css');
   linkElem.setAttribute('href', cssSrc);
-  document.getElementsByTagName('head')[0].appendChild(linkElem);
+  ddocument.getElementsByTagName('head')[0].appendChild(linkElem);
 }
