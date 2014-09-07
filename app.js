@@ -23,13 +23,10 @@ require(scripts, function($) {
 
 
   $('pre').on('click', function (e) {
-<<<<<<< HEAD
     currRunCodeType = $(this).parent()[0].className.split(' ')[1].split('-')[1];; //#QUICK-HACK
     currRunCodeText = $(this).text().replace(/\s/g, ' '); //#QUICK-HACK
 console.debug("^^^^",currRunCodeType, currRunCodeText);
-=======
     $('head').append($("<style>pre {height:150px;}</style>"))
->>>>>>> FETCH_HEAD
     $(this).codeblock();
     $(this).unbind();
   });
