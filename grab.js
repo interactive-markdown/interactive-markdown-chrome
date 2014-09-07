@@ -44,15 +44,14 @@ function setup_view(){
   //create button to launch simulator
   var isAndroid = $("a[title='AndroidManifest.xml']");
   if (isAndroid && isAndroid.length > 0) {
-    var button=$('<input/>').attr({
-          type: "button",
+    var button = $('<a></a>').attr({
           id: "field",
-          value: "Try Live"
-      });
+          class: 'runitbtn'
+        }).html("Run It Live!");
     
     //create canvas on click
     button.on('click', function(e) {
-      var frame = $('<div class="frame bounceInUp animated" style="background: no-repeat bottom center url(' + chrome.extension.getURL('/img/droid/android_top.png') + "),\
+      var frame = $('<div class="frame bounceInUp animated" style="background: no-repeat bottom center url(' + chrome.extension.getURL('/img/droid/android_bot.png') + "),\
                     repeat-x bottom center url(" + chrome.extension.getURL('/img/droid/android_bot_tile.png') + "),\
                     no-repeat center 27px url(" + chrome.extension.getURL('/img/droid/android_top.png') + "),\
                     repeat-x top center url(" + chrome.extension.getURL('/img/droid/android_top_tile.png') + ');"><div class="frame-inner"></div></div>');
@@ -66,10 +65,10 @@ function setup_view(){
       firstDiv.id = "firstDiv";
       idoc.getElementsByTagName("body")[0].appendChild(firstDiv);
       ifrm.src = chrome.extension.getURL('popup.html');
-
+      ifrm.scrolling = "no";
     });
 
-    $(".file-wrap").append(button);
+    $(button).insertAfter('.only-with-full-nav');
   }
 
 
