@@ -1,0 +1,28 @@
+{
+  "name": "Interactive Markdown",
+  "version": "0.2",
+  "description": "What if we could make markdown interactive!",
+  "icons": {
+    "256": "messagethen.png"
+  },
+  "manifest_version": 2,
+  "content_scripts": [
+      {
+          "js": ["js/bootstrap.js"],
+          "css" : [
+          "css/codeblock.css",
+          "css/pygment_trac.css"
+          ],
+          "matches": [
+              "https://github.com/*"
+          ]
+      }
+  ],
+  "web_accessible_resources": [
+      "js/*",
+      "vendor/*",
+      "css/*",
+      "images/*"
+  ],
+  "content_security_policy": "script-src 'self' 'unsafe-eval'; object-src 'self'"
+}

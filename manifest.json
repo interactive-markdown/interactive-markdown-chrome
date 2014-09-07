@@ -7,7 +7,12 @@
     "js": [
       "lib/scriptTagContext.js",
       "lib/require.js",
+      "lib/codeblock/js/bootstrap.js",
       "app.js"
+    ],
+    "css": [
+      "lib/codeblock/css/codeblock.css",
+      "lib/codeblock/css/pygment_trac.css"
     ],
     "matches": [
       "*://github.com/*"
@@ -24,6 +29,12 @@
   },
   "web_accessible_resources": [
     "lib/require.js",
-    "lib/jquery.js"
-  ]
+    "lib/jquery.js",
+    "lib/codeblock/js/*",
+    "lib/codeblock/vendor/*",
+    "lib/codeblock/vendor/*",
+    "lib/codeblock/css/*",
+    "lib/codeblock/images/*"
+  ],
+  "content_security_policy": "script-src 'self' 'unsafe-eval'; object-src 'self'"
 }
