@@ -40,13 +40,19 @@ function setup_view(){
   }
 }
 
-
 function getCode(codeBlockList, checkboxList){
   var codeStringDict = {};
   for (var i=0; i<codeBlockList.length; ++i){
     if (checkboxList[i].checked == true){
       var codeType = codeBlockList[i].className.split(' ')[1].split('-')[1]; //#FUTURE: Handle exception cases. Currently assumes that github will always have those 2 classes.
-      var codeString = codeBlockList[i].getElementsByTagName("pre")[0].textContent;
+      var codeString = '';
+      if (codeBlockList[i].children[0].tagName.toLowerCase()=="pre"){ //For normal Github Readme page.
+        codeString = codeBlockList[i].getElementsByTagName("pre")[0].textContent;
+      }
+      else{ //For codeblock edited Github Readme page.
+        codeString = codeBlockList[i].getElementsByClassName("ace_layer ace_text-layer")[0].textContent;
+      }
+
       if (typeof codeStringDict[codeType] == "undefined"){
         codeStringDict[codeType] = [];
       }//else if codeType is already a key in codeStringDict
