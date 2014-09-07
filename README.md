@@ -69,7 +69,7 @@ body {
  
 </style>
 <body>
-<script src="http://d3js.org/d3.v3.min.js"></script>
+<script src="https://rawgit.com/interactive-markdown/interactive-markdown-chrome/master/lib-example/d3js.org_d3.v3.min.js"></script>
 <script>
  
 var now = new Date(d3.time.year.floor(new Date()));
