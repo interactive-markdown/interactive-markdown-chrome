@@ -19,7 +19,7 @@ require(scripts, function($) {
   setup_view();
   //var codeStringDict = getCode(codeBlockList, checkboxList); //#TEMP: codeBlockList is from the global scope.
   //theRunButtonElement.addEventListener('click', function(){  injectCode(theRunButtonElement, codeStringDict);  });
-  console.log(codeStringDict);
+  // console.log(codeStringDict);
   $('pre').each(function () {
     $(this).codeblock();
   });
