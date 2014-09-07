@@ -1,6 +1,16 @@
 
 pre {height:150px;}
 
+
+pre:hover {
+    background-color: #FFFF66 !important;
+    color: #999966 !important;
+}
+pre:hover span {
+    color: #999966 !important;
+}
+
+
 /*Structure*/
 .codeblock-console-run {
     float: right;

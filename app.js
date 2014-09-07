@@ -20,9 +20,13 @@ require(scripts, function($) {
   //var codeStringDict = getCode(codeBlockList, checkboxList); //#TEMP: codeBlockList is from the global scope.
   //theRunButtonElement.addEventListener('click', function(){  injectCode(theRunButtonElement, codeStringDict);  });
   // console.log(codeStringDict);
-  $('pre').each(function () {
+
+
+  $('pre').on('click', function (e) {
     $(this).codeblock();
+    $(this).unbind();
   });
+
 
   // $(".codeblock-console-run").click(function() {
   //   //CANNOT ACCESS VALUES FROM editor.getValue() outside here...
