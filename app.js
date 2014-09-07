@@ -26,7 +26,7 @@ require(scripts, function($) {
     currRunCodeType = $(this).parent()[0].className.split(' ')[1].split('-')[1];; //#QUICK-HACK
     currRunCodeText = $(this).text().replace(/&nbsp;/g, ' '); //#QUICK-HACK
     currRunCodeParent = $(this).parent()[0]; //#QUICK-HACK
-console.debug("^^^^",currRunCodeType, currRunCodeText);
+
     //$($(this).parent()[0]).append($("<style>pre {height:150px;}</style>"))
     var height = $(this).height();
     $(this).css('height', (height + 50) + 'px');
