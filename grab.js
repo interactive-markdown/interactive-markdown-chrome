@@ -83,7 +83,9 @@ function setup_view(){
 
 function getCode(codeBlockList, checkboxList){
   var codeStringDict = {};
+  console.log("!@@", codeBlockList.length, "#", checkboxList.length);
   for (var i=0; i<codeBlockList.length; ++i){
+      console.log("@@@",i,checkboxList[i].checked);
     if (checkboxList[i].checked == true){
       var codeType = codeBlockList[i].className.split(' ')[1].split('-')[1]; //#FUTURE: Handle exception cases. Currently assumes that github will always have those 2 classes.
       var codeString = '';
@@ -92,8 +94,10 @@ function getCode(codeBlockList, checkboxList){
       }
       else{ //For codeblock edited Github Readme page.
         var codeDivs = codeBlockList[i].getElementsByClassName("ace_layer ace_text-layer")[0].children;
-        for (var i=0; i<codeDivs.length; ++i){
-          codeString += codeDivs[i].textContent.replace(/\s/g, " ")+"\n"; //#GOTCHA: Must remove no-break-space.
+        console.debug(codeDivs);
+        for (var j=0; j<codeDivs.length; ++j){ //#GOTCHA: Dont use variable i here.
+          codeString += codeDivs[j].textContent.replace(/\s/g, " ")+"\n"; //#GOTCHA: Must remove no-break-space.
+          console.debug(codeString);
         }
       }
 
