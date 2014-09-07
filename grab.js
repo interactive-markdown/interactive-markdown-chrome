@@ -52,7 +52,7 @@ function setup_view(){
     
     //create canvas on click
     button.on('click', function(e) {
-      var frame = $('<div class="frame" style="background: no-repeat bottom center url(' + chrome.extension.getURL('/img/droid/android_top.png') + "),\
+      var frame = $('<div class="frame bounceInUp animated" style="background: no-repeat bottom center url(' + chrome.extension.getURL('/img/droid/android_top.png') + "),\
                     repeat-x bottom center url(" + chrome.extension.getURL('/img/droid/android_bot_tile.png') + "),\
                     no-repeat center 27px url(" + chrome.extension.getURL('/img/droid/android_top.png') + "),\
                     repeat-x top center url(" + chrome.extension.getURL('/img/droid/android_top_tile.png') + ');"><div class="frame-inner"></div></div>');
