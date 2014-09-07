@@ -6,8 +6,14 @@ Interactive Markdown Chrome Extension
 Javascript
 
 ```js
-var name ="Kartik Talwar";
+var name = "Kartik Talwar";
 var age = 11*2;
 
-console.log("Hi, I'm", name, "and I'm", age)
+console.log("Hi, I'm", name, "and I'm", age);
 ```
+
+```python
+name = "Chen"
+print "Hi, I'm", name
+```
+
