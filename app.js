@@ -25,6 +25,7 @@ require(scripts, function($) {
   $('pre').on('click', function (e) {
     currRunCodeType = $(this).parent()[0].className.split(' ')[1].split('-')[1];; //#QUICK-HACK
     currRunCodeText = $(this).text().replace(/&nbsp;/g, ' '); //#QUICK-HACK
+    currRunCodeParent = $(this).parent()[0]; //#QUICK-HACK
 console.debug("^^^^",currRunCodeType, currRunCodeText);
     $('head').append($("<style>pre {height:150px;}</style>"))
     $(this).codeblock();
