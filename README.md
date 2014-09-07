@@ -13,6 +13,6 @@ console.log("Hi, I'm", name, "and I'm", age);
 ```
 
 ```python
-print 1+1
+print "hi"
 ```
 
