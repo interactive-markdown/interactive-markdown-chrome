@@ -79,6 +79,16 @@ function injectHTML(elementAboveInjectionPosition, htmlCode_string){
   // elemAbove.appendChild(docFrag);
   // return docFrag;
 }
+function injectResult_evalJS(elementAboveInjectionPosition, jsCode_string){
+  var returnVal = eval(jsCode_string);
+  var injectContainer = document.createElement("div");
+  var pre = document.createElement("pre");
+  pre.innerText = returnVal;
+  injectContainer.appendChild(pre);
+  insertElemAfter(elementAboveInjectionPosition, injectContainer);
+  return injectContainer;
+}
+
 
 function injectJS(jsCode_string, ddocument){
   if (typeof ddocument == "undefined"){
@@ -99,6 +109,7 @@ function injectJS_src(src, ddocument){
   ddocument.getElementsByTagName("html")[0].appendChild(scriptElem);
   return scriptElem;
 }
+
 
 function injectCSS(cssCode_string, ddocument){
   if (typeof ddocument == "undefined"){
