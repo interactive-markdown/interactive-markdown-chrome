@@ -33,7 +33,12 @@ require(scripts, function($) {
     $(this).codeblock();
     $(this).unbind();
   });
-
+  
+  $('.codeblock-console-run').on('click', function (e) {
+    currRunCodeType = $(this).parent()[0].className.split(' ')[1].split('-')[1];; //#QUICK-HACK
+    currRunCodeText = $(this).text().replace(/&nbsp;/g, ' '); //#QUICK-HACK
+    currRunCodeParent = $(this).parent()[0]; //#QUICK-HACK
+  });
 
   // $(".codeblock-console-run").click(function() {
   //   //CANNOT ACCESS VALUES FROM editor.getValue() outside here...
