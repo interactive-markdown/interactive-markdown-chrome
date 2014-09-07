@@ -16,11 +16,18 @@ var scripts = [
 
 
 require(scripts, function($) {
-
-  console.log('here yo');
+  setup_view();
+  //var codeStringDict = getCode(codeBlockList, checkboxList); //#TEMP: codeBlockList is from the global scope.
+  //theRunButtonElement.addEventListener('click', function(){  injectCode(theRunButtonElement, codeStringDict);  });
+  console.log(codeStringDict);
   $('pre').each(function () {
     $(this).codeblock();
   });
+
+  // $(".codeblock-console-run").click(function() {
+  //   //CANNOT ACCESS VALUES FROM editor.getValue() outside here...
+  //   console.debug("@@@", $(this).parent().parent().children(".codeblock-editor-wrapper").children(".codeblock-editor .ace_editor .ace_nobold .ace-dawn").codeblock(), "###");//.editor.getValue()
+  // });
 
    // var request = $.ajax({ type: 'GET', url: encodeURI('https://api.uwaterloo.ca/v2/weather/current.json'), async : false });
    // console.log(request.responseText)
