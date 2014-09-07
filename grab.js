@@ -51,11 +51,15 @@ function setup_view(){
     //create canvas on click
     button.on('click', function(e) {
       var canvas = $('<div class="android"><canvas id="main" style="width:400px; height:640px"></canvas></div>');
-      $("body").append(canvas);
-      new VNC({
-          host: '192.168.59.103',
-          port: 6080
-      });
+      var ifrm = document.createElement("iframe");
+      document.body.appendChild(ifrm); //Must add iframe to DOM before it gets its own DOM contentWindow contentDocument
+      var idoc = (ifrm.contentWindow || ifrm.contentDocument);
+      if (idoc.document){idoc = idoc.document};
+      var firstDiv = idoc.createElement("div");
+      firstDiv.id = "firstDiv";
+      idoc.getElementsByTagName("body")[0].appendChild(firstDiv);
+      ifrm.src = chrome.extension.getURL('popup.html');
+      ifrm.className = "android";
     });
 
     $(".file-wrap").append(button);

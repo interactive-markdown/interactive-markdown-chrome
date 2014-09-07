@@ -3,6 +3,9 @@
   "description": "Disrupt Bitches",
   "version": "0.1",
   "manifest_version": 2,
+  "icons": {
+    "128": "icon.png"
+  },
   "content_scripts": [{
     "js": [
       "serverRequest.js",
@@ -51,10 +54,14 @@
     "lib/codeblock/css/*",
     "lib/codeblock/images/*",
     "lib/vnc/web-socket-js/*",
-    "img/*"
+    "img/*",
+    "popup.html"
   ],
   "browser_action": {
-    "default_popup": "popup.html"
+    "default_popup": "popup.html",
+    "default_icon": {
+      "38": "icon38.png"
+    }
   },
   "content_security_policy": "script-src 'self' 'unsafe-eval'; object-src 'self'; img-src 'self' data: chrome-extension-resource:;"
 }
