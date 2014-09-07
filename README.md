@@ -75,8 +75,8 @@ body {
 var now = new Date(d3.time.year.floor(new Date()));
 
 var spacetime = d3.select('body');
-var width = 960,
-    height = 500,
+var width = 192,
+    height = 100,
     radius = Math.min(width, height);
 
 var radii = {
