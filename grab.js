@@ -11,6 +11,7 @@ var codeBlockList = document.getElementsByClassName("highlight");
 var checkboxList = [];
 var attributeNameOptions = ["interactive-markdown", "imd"];
 var opt = 0;
+var currRunCodeType = ''; //#QUICK-HACK
 
 function setup_view(){
   //Check to prevent overwriting of existing attributes.
@@ -33,6 +34,7 @@ function setup_view(){
     var checkbox = document.createElement("input");
     checkbox.type = "checkbox";
     checkbox.value = attributeNameOptions[opt]+"_"+i;
+    checkbox.hidden = true; //#QUICK-HACK
     checkboxList.push(checkbox);
     //codeBlockList[i].insertBefore(checkbox, codeBlockList[i].getElementsByTagName("pre")[0]);
     codeBlockList[i].appendChild(checkbox);
