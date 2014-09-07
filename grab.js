@@ -50,16 +50,21 @@ function setup_view(){
     
     //create canvas on click
     button.on('click', function(e) {
-      var canvas = $('<div class="android"><canvas id="main" style="width:400px; height:640px"></canvas></div>');
+      var frame = $('<div class="frame" style="background: no-repeat bottom center url(' + chrome.extension.getURL('/img/droid/android_top.png') + "),\
+                    repeat-x bottom center url(" + chrome.extension.getURL('/img/droid/android_bot_tile.png') + "),\
+                    no-repeat center 27px url(" + chrome.extension.getURL('/img/droid/android_top.png') + "),\
+                    repeat-x top center url(" + chrome.extension.getURL('/img/droid/android_top_tile.png') + ');"><div class="frame-inner"></div></div>');
+      document.getElementsByTagName('body')[0].appendChild(frame[0]);
+      var subframe = frame.find('.frame-inner');
       var ifrm = document.createElement("iframe");
-      document.body.appendChild(ifrm); //Must add iframe to DOM before it gets its own DOM contentWindow contentDocument
+      subframe[0].appendChild(ifrm); //Must add iframe to DOM before it gets its own DOM contentWindow contentDocument
       var idoc = (ifrm.contentWindow || ifrm.contentDocument);
       if (idoc.document){idoc = idoc.document};
       var firstDiv = idoc.createElement("div");
       firstDiv.id = "firstDiv";
       idoc.getElementsByTagName("body")[0].appendChild(firstDiv);
       ifrm.src = chrome.extension.getURL('popup.html');
-      ifrm.className = "android";
+
     });
 
     $(".file-wrap").append(button);
