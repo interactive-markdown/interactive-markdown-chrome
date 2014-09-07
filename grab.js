@@ -1,8 +1,7 @@
 //You can test this with https://github.com/CoderDojoSF/AroundTheWorld
 function TEST_injectDisplay(){
   setup_view();
-  var codeBlock = document.getElementsByClassName("srg")[0].getElementsByClassName("g")[0];
-  var codeStringDict = getCode(codeBlockList, checkboxList);
+  var codeStringDict = getCode(codeBlockList, checkboxList); //#TEMP: codeBlockList is from the global scope.
   //theRunButtonElement.addEventListener('click', function(){  injectCode(theRunButtonElement, codeStringDict);  });
 }
 
