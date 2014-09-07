@@ -13,6 +13,11 @@ console.log("Hi, I'm", name, "and I'm", age);
 ```
 
 ```ruby
-puts "hi"
+name = Chen
+puts print "This is ", name
+```
+
+```ruby
+puts print "This is ", name, "again in another code block."
 ```
 
