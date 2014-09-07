@@ -13,7 +13,7 @@ console.log("Hi, I'm", name, "and I'm", age);
 ```
 
 ```ruby
-name = Chen
+name = "Chen"
 puts print "This is ", name
 ```
 
