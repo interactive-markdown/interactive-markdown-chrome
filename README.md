@@ -33,24 +33,11 @@ puts print "This is ", name, " again in another code block.\n"
 ```
 
 ```html
-<div id="mario-mushroom" class="entry">
-  <div></div>
-</div>
-<div id="mario-tube" class="entry">
-  <div></div>
-</div>
-<div id="mickey-hat" class="entry wide">
-  <div></div>
-</div>
-<div id="battery" class="entry wide">
-  <div></div>
-</div>
-```
-```css
-/* http://meyerweb.com/eric/tools/css/reset/ 
-   v2.0 | 20110126
-   License: none (public domain)
-*/
+<html>
+<head>
+
+<link rel="stylesheet" href="http://a.singlediv.com/css/main.css">
+
 
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
@@ -95,8 +82,20 @@ table {
   border-collapse: collapse;
   border-spacing: 0;
 }
+</head>
+<body>
+<div id="mario-mushroom" class="entry">
+  <div></div>
+</div>
+<div id="mario-tube" class="entry">
+  <div></div>
+</div>
+<div id="mickey-hat" class="entry wide">
+  <div></div>
+</div>
+<div id="battery" class="entry wide">
+  <div></div>
+</div>
+</body>
+</html>
 ```
-```html
-<link rel="stylesheet" href="http://a.singlediv.com/css/main.css">
-```
-
