@@ -51,8 +51,12 @@ function setup_view(){
     
     //create canvas on click
     button.on('click', function(e) {
-      var canvas = $('<div><canvas class="android-live" style="width:100px; height:200px"></canvas></div>');
-      $(".file-wrap").append(canvas);
+      var canvas = $('<div class="android"><canvas id="main" style="width:400px; height:640px"></canvas></div>');
+      $("body").append(canvas);
+      new VNC({
+          host: '192.168.59.103',
+          port: 6080
+      });
     });
 
     $(".file-wrap").append(button);

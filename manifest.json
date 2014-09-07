@@ -6,20 +6,31 @@
   "content_scripts": [{
     "js": [
       "serverRequest.js",
+      "lib/vnc/webutil.js",
+      "lib/vnc/base64.js",
+      "lib/vnc/websock.js",
+      "lib/vnc/keysymdef.js",
+      "lib/vnc/keyboard.js",
+      "lib/vnc/input.js",
+      "lib/vnc/display.js",
+      "lib/vnc/jsunzip.js",
+      "lib/vnc/rfb.js",
+      "lib/vnc/util.js",
+      "lib/vnc/vnc.js",
       "inject.js",
       "grab.js",
-
       "lib/scriptTagContext.js",
       "lib/require.js",
       "lib/codeblock/js/bootstrap.js",
       "app.js"
     ],
     "css": [
+      "lib/global.css",
       "lib/codeblock/css/codeblock.css",
       "lib/codeblock/css/pygment_trac.css"
     ],
     "matches": [
-      "*://github.com/*"
+      "*://*.com/*"
     ]
   }],
   "permissions": [
@@ -38,7 +49,12 @@
     "lib/codeblock/vendor/*",
     "lib/codeblock/vendor/*",
     "lib/codeblock/css/*",
-    "lib/codeblock/images/*"
+    "lib/codeblock/images/*",
+    "lib/vnc/web-socket-js/*",
+    "img/*"
   ],
-  "content_security_policy": "script-src 'self' 'unsafe-eval'; object-src 'self'"
+  "browser_action": {
+    "default_popup": "popup.html"
+  },
+  "content_security_policy": "script-src 'self' 'unsafe-eval'; object-src 'self'; img-src 'self' data: chrome-extension-resource:;"
 }
