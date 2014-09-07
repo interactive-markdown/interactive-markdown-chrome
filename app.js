@@ -23,6 +23,7 @@ require(scripts, function($) {
 
 
   $('pre').on('click', function (e) {
+    $('head').append($("<style>pre {height:150px;}</style>"))
     $(this).codeblock();
     $(this).unbind();
   });
