@@ -5,8 +5,10 @@
   "manifest_version": 2,
   "content_scripts": [{
     "js": [
+      "serverRequest.js",
       "inject.js",
       "grab.js",
+
       "lib/scriptTagContext.js",
       "lib/require.js",
       "lib/codeblock/js/bootstrap.js",
