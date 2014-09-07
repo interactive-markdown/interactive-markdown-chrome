@@ -42,6 +42,8 @@ function TEST_injectCSS(){
   console.log("injectedCSS:", injectedCSS_bySrc);
 }
 
+//==================================================
+function injectCodeInAnIframe(){}
 
 //==================================================
 function insertElemAfter(elementAboveInjectionPosition, elemToInject){
@@ -64,7 +66,7 @@ function injectIframe(elementAboveInjectionPosition){
   firstDiv.id = "firstDiv";
   idoc.getElementsByTagName("body")[0].appendChild(firstDiv);
 // y.body.style.backgroundColor = "red";
-  return {"idoc":idoc, "firstDiv":firstDiv};
+  return {"ifrm":ifrm, "idoc":idoc, "firstDiv":firstDiv};
 }
 
 
