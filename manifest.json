@@ -1,0 +1,29 @@
+{
+  "name": "Interactive Markdown",
+  "description": "Disrupt Bitches",
+  "version": "0.1",
+  "manifest_version": 2,
+  "content_scripts": [{
+    "js": [
+      "lib/scriptTagContext.js",
+      "lib/require.js",
+      "app.js"
+    ],
+    "matches": [
+      "*://github.com/*"
+    ]
+  }],
+  "permissions": [
+    "webRequest",
+    "https://github.com/*",
+    "http://github.com/*"
+  ],
+  "externally_connectable": {
+    "matches": [
+    ]
+  },
+  "web_accessible_resources": [
+    "lib/require.js",
+    "lib/jquery.js"
+  ]
+}
