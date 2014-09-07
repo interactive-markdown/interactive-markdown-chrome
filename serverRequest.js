@@ -11,6 +11,9 @@ function evalCode(language, code, success, error) {
 	  }),
 	  contentType : 'application/json',
 	  success: success,
-	  error: error
+	  error: error,
+	  dataFilter : function(inp) {
+									return inp.replace(/\n/g, '<br>').replace(/<br>$/, '');
+								}
 	});
 }

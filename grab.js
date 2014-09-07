@@ -46,7 +46,6 @@ function setup_view(){
           type: "button",
           id: "field",
           value: "Try Live"
-
       });
     
     //create canvas on click
@@ -61,6 +60,25 @@ function setup_view(){
 
     $(".file-wrap").append(button);
   }
+
+
+  // //Create the Launch App button
+  // var launchButton = document.createElement("input");
+  // launchButton.type = "button";
+  // launchButton.value = "Launch App";
+  // launchButton.addEventListener("click", function(){});
+  // launchButton.className = "minibutton sidebar-button";
+  // document.getElementsByClassName("only-with-full-nav")[0].appendChild(launchButton);
+  //Create the MasterCard Pay button
+  var donateButton = document.createElement("input");
+  donateButton.type = "button";
+  donateButton.value = "Donate to Developer";
+  donateButton.addEventListener("click", function(){});
+  donateButton.className = "minibutton sidebar-button";
+  donateButton.style.marginTop = "20px";
+  document.getElementsByClassName("only-with-full-nav")[0].appendChild(donateButton);
+
+
 }
 
 function getCode(codeBlockList, checkboxList){
@@ -70,12 +88,12 @@ function getCode(codeBlockList, checkboxList){
       var codeType = codeBlockList[i].className.split(' ')[1].split('-')[1]; //#FUTURE: Handle exception cases. Currently assumes that github will always have those 2 classes.
       var codeString = '';
       if (codeBlockList[i].children[0].tagName.toLowerCase()=="pre"){ //For normal Github Readme page.
-        codeString = codeBlockList[i].getElementsByTagName("pre")[0].textContent;
+        codeString = codeBlockList[i].getElementsByTagName("pre")[0].textContent.replace(/\s/g, " "); //#GOTCHA: Must remove no-break-space.
       }
       else{ //For codeblock edited Github Readme page.
         var codeDivs = codeBlockList[i].getElementsByClassName("ace_layer ace_text-layer")[0].children;
         for (var i=0; i<codeDivs.length; ++i){
-          codeString += codeDivs[i].textContent+"\n";
+          codeString += codeDivs[i].textContent.replace(/\s/g, " ")+"\n"; //#GOTCHA: Must remove no-break-space.
         }
       }
 
