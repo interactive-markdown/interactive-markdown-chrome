@@ -26,9 +26,6 @@ print map(square, [2,3,4,5])
 ```ruby
 name = "Chen"
 puts print "This is ", name, "\n"
-```
-
-```ruby
 puts print "This is ", name, " again in another code block.\n"
 ```
 
