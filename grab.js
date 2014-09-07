@@ -50,7 +50,10 @@ function getCode(codeBlockList, checkboxList){
         codeString = codeBlockList[i].getElementsByTagName("pre")[0].textContent;
       }
       else{ //For codeblock edited Github Readme page.
-        codeString = codeBlockList[i].getElementsByClassName("ace_layer ace_text-layer")[0].textContent;
+        var codeDivs = codeBlockList[i].getElementsByClassName("ace_layer ace_text-layer")[0].children;
+        for (var i=0; i<codeDivs.length; ++i){
+          codeString += codeDivs[i].textContent+"\n";
+        }
       }
 
       if (typeof codeStringDict[codeType] == "undefined"){
