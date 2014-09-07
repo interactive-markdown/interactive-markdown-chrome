@@ -19,13 +19,9 @@ console.log("Hi, I'm", name, "and I'm", age);
 <head>
   <link rel="stylesheet" href="https://rawgit.com/interactive-markdown/interactive-markdown-chrome/master/lib-example/a.singlediv.com_reset.css">
   <link rel="stylesheet" href="https://rawgit.com/interactive-markdown/interactive-markdown-chrome/master/lib-example/a.singlediv.com_main.css">
-  <style>
-  #mario-mushroom {
-      /*
-      background-color:red
-      */
-      }
-  </style>
+  
+  
+  
 </head>
 <body>
 <div id="mario-mushroom" class="entry">
