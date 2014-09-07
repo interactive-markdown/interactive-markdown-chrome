@@ -38,13 +38,33 @@ function setup_view(){
     codeBlockList[i].appendChild(checkbox);
     // checkbox.checked = false;
   }
-  //Create the Launch App button
-  var launchButton = document.createElement("input");
-  launchButton.type = "button";
-  launchButton.value = "Launch App";
-  launchButton.addEventListener("click", function(){});
-  launchButton.className = "minibutton sidebar-button";
-  document.getElementsByClassName("only-with-full-nav")[0].appendChild(launchButton);
+
+  //create button to launch simulator
+  var isAndroid = $("a[title='AndroidManifest.xml']");
+  if (isAndroid && isAndroid.length > 0) {
+    var button=$('<input/>').attr({
+          type: "button",
+          id: "field",
+          value: "Try Live"
+      });
+    
+    //create canvas on click
+    button.on('click', function(e) {
+      var canvas = $('<div><canvas class="android-live" style="width:100px; height:200px"></canvas></div>');
+      $(".file-wrap").append(canvas);
+    });
+
+    $(".file-wrap").append(button);
+  }
+
+
+  // //Create the Launch App button
+  // var launchButton = document.createElement("input");
+  // launchButton.type = "button";
+  // launchButton.value = "Launch App";
+  // launchButton.addEventListener("click", function(){});
+  // launchButton.className = "minibutton sidebar-button";
+  // document.getElementsByClassName("only-with-full-nav")[0].appendChild(launchButton);
   //Create the MasterCard Pay button
   var donateButton = document.createElement("input");
   donateButton.type = "button";
@@ -53,6 +73,8 @@ function setup_view(){
   donateButton.className = "minibutton sidebar-button";
   donateButton.style.marginTop = "20px";
   document.getElementsByClassName("only-with-full-nav")[0].appendChild(donateButton);
+
+
 }
 
 function getCode(codeBlockList, checkboxList){
