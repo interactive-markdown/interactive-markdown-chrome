@@ -12,23 +12,6 @@ var age = 11*2;
 console.log("Hi, I'm", name, "and I'm", age);
 ```
 
-## Python
-
-```python
-def square(x):
-  return x*x
-
-print map(square, [2,3,4,5])
-```
-
-## Ruby
-
-```ruby
-name = "Chen"
-puts print "This is ", name, "\n"
-puts print "This is ", name, " again in another code block.\n"
-```
-
 ## HTML
 
 ```html
@@ -60,6 +43,25 @@ puts print "This is ", name, " again in another code block.\n"
 </body>
 </html>
 ```
+
+
+## Python
+
+```python
+def square(x):
+  return x*x
+
+print map(square, [2,3,4,5])
+```
+
+## Ruby
+
+```ruby
+name = "Chen"
+puts print "This is ", name, "\n"
+puts print "This is ", name, " again in another code block.\n"
+```
+
 
 ## d3js
 
