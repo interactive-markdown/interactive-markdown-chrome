@@ -43,6 +43,7 @@ function setup_view(){
   launchButton.type = "button";
   launchButton.value = "Launch App";
   launchButton.addEventListener("click", function(){});
+  launchButton.className = "minibutton sidebar-button";
   document.getElementsByClassName("only-with-full-nav")[0].appendChild(launchButton);
 }
 
@@ -53,12 +54,12 @@ function getCode(codeBlockList, checkboxList){
       var codeType = codeBlockList[i].className.split(' ')[1].split('-')[1]; //#FUTURE: Handle exception cases. Currently assumes that github will always have those 2 classes.
       var codeString = '';
       if (codeBlockList[i].children[0].tagName.toLowerCase()=="pre"){ //For normal Github Readme page.
-        codeString = codeBlockList[i].getElementsByTagName("pre")[0].textContent;
+        codeString = codeBlockList[i].getElementsByTagName("pre")[0].textContent.replace(/\s/g, " "); //#GOTCHA: Must remove no-break-space.
       }
       else{ //For codeblock edited Github Readme page.
         var codeDivs = codeBlockList[i].getElementsByClassName("ace_layer ace_text-layer")[0].children;
         for (var i=0; i<codeDivs.length; ++i){
-          codeString += codeDivs[i].textContent+"\n";
+          codeString += codeDivs[i].textContent.replace(/\s/g, " ")+"\n"; //#GOTCHA: Must remove no-break-space.
         }
       }
 
