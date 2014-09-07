@@ -16,12 +16,12 @@ console.log("Hi, I'm", name, "and I'm", age);
 
 ```ruby
 name = "Chen"
-puts print "This is ", name
+puts print "This is ", name, "\n"
 ```
 
 
 ```ruby
-puts print "This is ", name, "again in another code block."
+puts print "This is ", name, " again in another code block.\n"
 ```
 
 
