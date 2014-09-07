@@ -34,7 +34,7 @@ puts print "This is ", name, " again in another code block.\n"
 ```html
 <html>
 <head>
-  <link rel="stylesheet" href="https://rawgit.com/interactive-markdown/interactive-markdown-chrome/master/lib-example/a.singlediv.com_reset.css">s
+  <link rel="stylesheet" href="https://rawgit.com/interactive-markdown/interactive-markdown-chrome/master/lib-example/a.singlediv.com_reset.css">
   <link rel="stylesheet" href="https://rawgit.com/interactive-markdown/interactive-markdown-chrome/master/lib-example/a.singlediv.com_main.css">
 </head>
 <body>
