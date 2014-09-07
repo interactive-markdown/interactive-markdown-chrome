@@ -29,6 +29,7 @@
     ],
     "css": [
       "lib/global.css",
+      "lib/animate.css",
       "lib/codeblock/css/codeblock.css",
       "lib/codeblock/css/pygment_trac.css"
     ],
