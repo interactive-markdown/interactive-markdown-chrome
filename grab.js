@@ -38,6 +38,12 @@ function setup_view(){
     codeBlockList[i].appendChild(checkbox);
     // checkbox.checked = false;
   }
+  //Create the Launch App button
+  var launchButton = document.createElement("input");
+  launchButton.type = "button";
+  launchButton.value = "Launch App";
+  launchButton.addEventListener("click", function(){});
+  document.getElementsByClassName("only-with-full-nav")[0].appendChild(launchButton);
 }
 
 function getCode(codeBlockList, checkboxList){
