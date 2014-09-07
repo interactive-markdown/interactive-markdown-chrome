@@ -57,7 +57,6 @@ puts print "This is ", name, " again in another code block.\n"
 ## d3js
 
 ```html
-<!DOCTYPE html>
 <meta charset="utf-8">
 <style>
  
