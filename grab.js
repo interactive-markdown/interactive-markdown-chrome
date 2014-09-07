@@ -45,6 +45,14 @@ function setup_view(){
   launchButton.addEventListener("click", function(){});
   launchButton.className = "minibutton sidebar-button";
   document.getElementsByClassName("only-with-full-nav")[0].appendChild(launchButton);
+  //Create the MasterCard Pay button
+  var donateButton = document.createElement("input");
+  donateButton.type = "button";
+  donateButton.value = "Donate to Developer";
+  donateButton.addEventListener("click", function(){});
+  donateButton.className = "minibutton sidebar-button";
+  donateButton.style.marginTop = "20px";
+  document.getElementsByClassName("only-with-full-nav")[0].appendChild(donateButton);
 }
 
 function getCode(codeBlockList, checkboxList){
