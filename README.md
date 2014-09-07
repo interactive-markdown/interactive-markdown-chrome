@@ -29,6 +29,8 @@ puts print "This is ", name, "\n"
 puts print "This is ", name, " again in another code block.\n"
 ```
 
+## HTML
+
 ```html
 <html>
 <head>
