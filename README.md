@@ -13,6 +13,6 @@ console.log("Hi, I'm", name, "and I'm", age);
 ```
 
 ```ruby
-print "hi"
+puts "hi"
 ```
 
